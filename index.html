@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord UI Clone</title>
+    <title>Discord Inv</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -21,6 +21,7 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
         .gradient-text {
             background: linear-gradient(to right, lightpurple, lightblue);
@@ -41,18 +42,21 @@
         .button:hover {
             background-color: #5b6eae; /* Darker shade on hover */
         }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="ui-background">
+        <img src="https://cdn.prod.website-files.com/625fe439fb70a9d901e138ab/648c1a09c6a80c200fa95349_628c05f2e63f068e62b96336_Discord%20Author%20Black.png" alt="Discord Logo">
         <h1 class="gradient-text">Welcome to Discord UI Clone</h1>
-        <button class="button" onclick="handleClick()">Click Me!</button>
+        
+        <!-- Replace the URL below with your actual Discord invite link -->
+        <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">
+            <button class="button">Join Server</button>
+        </a>
     </div>
-
-    <script>
-        function handleClick() {
-            alert("Button clicked!");
-        }
-    </script>
 </body>
 </html>
