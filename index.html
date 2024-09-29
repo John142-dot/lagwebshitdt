@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laggy Website Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Laggy Website!</h1>
+    <button id="lagButton">Click Me!</button>
+    <div class="message" id="message"></div>
+
+    <script>
+        document.getElementById('lagButton').addEventListener('click', function() {
+            // Simulate lag with a long timeout
+            setTimeout(function() {
+                document.getElementById('message').innerText = "Thanks for your patience!";
+            }, 5000); // 5 seconds delay
+        });
+    </script>
+
+</body>
+</html>
