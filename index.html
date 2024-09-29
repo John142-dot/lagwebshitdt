@@ -3,39 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laggy Website Example</title>
+    <title>Discord UI Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            background-color: #2c2f33;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        button {
+        .ui-background {
+            background-color: #23272a;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, lightpurple, lightblue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 24px;
+        }
+        .button {
+            background-color: #7289da; /* Discord Blue */
+            border: none;
+            border-radius: 5px;
+            color: white;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .message {
-            margin-top: 20px;
-            font-size: 24px;
-            color: blue;
+        .button:hover {
+            background-color: #5b6eae; /* Darker shade on hover */
         }
     </style>
 </head>
 <body>
-
-    <h1>Welcome to the Laggy Website!</h1>
-    <button id="lagButton">Click Me!</button>
-    <div class="message" id="message"></div>
+    <div class="ui-background">
+        <h1 class="gradient-text">Welcome to Discord UI Clone</h1>
+        <button class="button" onclick="handleClick()">Click Me!</button>
+    </div>
 
     <script>
-        document.getElementById('lagButton').addEventListener('click', function() {
-            // Simulate lag with a long timeout
-            setTimeout(function() {
-                document.getElementById('message').innerText = "Thanks for your patience!";
-            }, 5000); // 5 seconds delay
-        });
+        function handleClick() {
+            alert("Button clicked!");
+        }
     </script>
-
 </body>
 </html>
