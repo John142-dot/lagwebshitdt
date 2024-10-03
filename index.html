@@ -65,23 +65,44 @@
             display: block;
             opacity: 1;
         }
+
+        /* Footer Styles */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Hide footer on PC */
+        @media screen and (min-width: 769px) {
+            .footer {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Glowing Copy Button</div>
-        <button class="copy-button" onclick="copyText()">Copy epic utg script</button>
+        <button class="copy-button" onclick="copyText()">Copy epic UTG script</button>
     </div>
 
     <!-- Notification -->
-    <div id="notify" class="notify">Script copied! now get tf out</div>
+    <div id="notify" class="notify">Script copied! Now get tf out</div>
+
+    <!-- Footer (Visible on Mobile Only) -->
+    <div class="footer">© UTG Game Enhancer | All Rights Reserved</div>
 
     <script>
         function copyText() {
             // Create a dummy input to copy the text from
             const dummy = document.createElement("input");
             document.body.appendChild(dummy);
-            dummy.setAttribute("value", "loadstring(game:HttpGet("https://pastebin.com/raw/8Z1LC7sE"))()");
+            dummy.setAttribute("value", 'loadstring(game:HttpGet("https://pastebin.com/raw/8Z1LC7sE"))()');
             dummy.select();
             document.execCommand("copy");
             document.body.removeChild(dummy);
