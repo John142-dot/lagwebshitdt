@@ -3,60 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Inv</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Copy UI</title>
     <style>
         body {
-            background-color: #2c2f33;
-            font-family: 'Roboto', sans-serif;
-            color: white;
-            margin: 0;
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
-        .ui-background {
-            background-color: #23272a;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+
+        .container {
             text-align: center;
         }
-        .gradient-text {
-            background: linear-gradient(to right, lightpurple, lightblue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 24px;
-        }
-        .button {
-            background-color: #7289da; /* Discord Blue */
-            border: none;
-            border-radius: 5px;
+
+        .title {
             color: white;
+            font-size: 24px;
+            text-shadow: 0 0 10px white;
+            margin-bottom: 20px;
+        }
+
+        .copy-button {
+            background-color: #000;
+            border: 2px solid red;
+            color: red;
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            transition: 0.2s;
         }
-        .button:hover {
-            background-color: #5b6eae; /* Darker shade on hover */
+
+        .copy-button:hover {
+            box-shadow: 0 0 10px red;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+
+        .copy-button:active {
+            transform: scale(0.98);
+        }
+
+        /* Notification Styles */
+        .notify {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: rgb(240, 240, 240);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(240, 240, 240, 0.5);
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <div class="ui-background">
-        <img src="https://cdn.prod.website-files.com/625fe439fb70a9d901e138ab/648c1a09c6a80c200fa95349_628c05f2e63f068e62b96336_Discord%20Author%20Black.png" alt="Discord Logo">
-        <h1 class="gradient-text">Welcome to Discord UI Clone</h1>
-        
-        <!-- Replace the URL below with your actual Discord invite link -->
-        <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">
-            <button class="button">Join Server</button>
-        </a>
+    <div class="container">
+        <div class="title">Glowing Copy Button</div>
+        <button class="copy-button" onclick="copyText()">Copy</button>
     </div>
+
+    <!-- Notification -->
+    <div id="notify" class="notify">Text copied!</div>
+
+    <script>
+        function copyText() {
+            // Create a dummy input to copy the text from
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.setAttribute("value", "This is the text to copy");
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            // Show custom notification
+            const notify = document.getElementById("notify");
+            notify.classList.add("show");
+            
+            // Hide notification after 2 seconds
+            setTimeout(() => {
+                notify.classList.remove("show");
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
