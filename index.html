@@ -42,6 +42,9 @@
     .main h1 {
       font-size: 50px;
       margin-bottom: 20px;
+      background: linear-gradient(to bottom, purple, black);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .main p {
@@ -68,24 +71,20 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background-color: #00bcd4;
-      border-radius: 15px;
-      animation: move 10s infinite;
-      opacity: 0.8;
+      background-color: #00bcd4; 
+      border-radius: 15px; 
     }
 
-    @keyframes move {
-      0% {
-        transform: translateY(0) rotate(0deg);
+    @keyframes slide {
+      from {
+        transform: translateX(100vw); /* Start offscreen to the right */
       }
-      50% {
-        transform: translateY(-200px) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0) rotate(360deg);
+      
+      to {
+        transform: translateX(-60px); /* Slide offscreen to the left */
       }
     }
-
+    
   </style>
 </head>
 <body>
@@ -108,19 +107,612 @@
     function createCube() {
       const cube = document.createElement('div');
       cube.classList.add('cube');
-      cube.style.left = `${Math.random() * window.innerWidth}px`;
-      cube.style.animationDuration = `${Math.random() * 3 + 5}s`;
+      
+      // Positioning the cube randomly along the vertical axis
+      cube.style.top = `${Math.random() * (window.innerHeight - 60)}px`;
+      
+      // Set animation duration and start animation
+      const duration = Math.random() * (5) + 5; // Duration between 5s and 10s
+      cube.style.animation = `slide ${duration}s linear forwards`;
+      
       document.body.appendChild(cube);
 
-      // Remove cube after animation ends
+      // Reset position after animation ends
       cube.addEventListener('animationend', () => {
         cube.remove();
-      });
-    }
+        createCube(); // Create a new cube to maintain constant number
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        createCube(); // Create another new cube
+        
+        
+      
+        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+     
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+        
 
-    // Create multiple cubes at intervals
-    setInterval(createCube, 500);
-  </script>
+
+        
+
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+         
+
+        
+
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+
+    
+    
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+  
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+      
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+ 
+
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+   }
+
+  
+}
+
+setInterval(createCube, 1000); // Create a new cube every second
+
+</script>
 
 </body>
-</html>
+  </html>
