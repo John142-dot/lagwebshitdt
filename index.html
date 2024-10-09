@@ -3,41 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Styling</title>
+  <title>Clean UI with Animated Background</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: white;
       margin: 0;
-      padding: 0;
+      overflow: hidden;
+      background-color: #1a1a1a;
+      font-family: Arial, sans-serif;
+      color: white;
     }
+
+    .header {
+      background-color: #282828;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    .header a:hover {
+      color: #4CAF50;
+    }
+
+    .main {
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      z-index: 10; /* Ensure main content is above background */
+    }
+
+    .main h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .main p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .main button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .main button:hover {
+      background-color: #45a049;
+    }
+
+    /* Animated Cubes */
+    .cube {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: #00bcd4;
+      border-radius: 15px;
+      animation: move 10s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-200px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+
   </style>
 </head>
 <body>
 
-  <h1>Welcome to Dynamic Styling</h1>
-  <p>This is a paragraph.</p>
-  <div>This is a div element.</div>
-  <button>Click Me!</button>
+  <div class="header">
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Download</a>
+    <a href="#">Support</a>
+  </div>
+
+  <div class="main">
+    <h1>Welcome to Your Clean UI</h1>
+    <p>Minimalist, Fast, and Secure</p>
+    <button>Download Now</button>
+  </div>
 
   <script>
-    // Function to add styles to all elements
-    function addStylesToAllElements() {
-      const elements = document.body.getElementsByTagName('*'); // Get all elements
+    // Function to create cubes in the background
+    function createCube() {
+      const cube = document.createElement('div');
+      cube.classList.add('cube');
+      cube.style.left = `${Math.random() * window.innerWidth}px`;
+      cube.style.animationDuration = `${Math.random() * 3 + 5}s`;
+      document.body.appendChild(cube);
 
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].style.color = 'lightblue'; // Set text color
-        elements[i].style.backgroundColor = '#333'; // Set background color
-        elements[i].style.padding = '10px'; // Add padding
-        elements[i].style.borderRadius = '5px'; // Add border radius
-        elements[i].style.margin = '5px'; // Add margin
-        elements[i].style.transition = 'all 0.3s ease'; // Smooth transition
-      }
+      // Remove cube after animation ends
+      cube.addEventListener('animationend', () => {
+        cube.remove();
+      });
     }
 
-    // Call the function to apply styles
-    addStylesToAllElements();
+    // Create multiple cubes at intervals
+    setInterval(createCube, 500);
   </script>
 
 </body>
