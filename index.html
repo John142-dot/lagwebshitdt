@@ -8,28 +8,9 @@
     body {
       margin: 0;
       overflow: hidden;
-      background-color: #1a1a1a;
+      background: linear-gradient(to bottom, purple, black);
       font-family: Arial, sans-serif;
       color: white;
-    }
-
-    .header {
-      background-color: #282828;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-size: 16px;
-    }
-
-    .header a:hover {
-      color: #4CAF50;
     }
 
     .main {
@@ -42,9 +23,6 @@
     .main h1 {
       font-size: 50px;
       margin-bottom: 20px;
-      background: linear-gradient(to bottom, purple, black);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     .main p {
@@ -53,7 +31,7 @@
     }
 
     .main button {
-      background-color: #4CAF50;
+      background-color: #4CAF50; /* Original green color */
       color: white;
       padding: 15px 30px;
       border: none;
@@ -61,24 +39,29 @@
       cursor: pointer;
       font-size: 18px;
       position: relative;
+      animation: glow 1.5s infinite alternate; /* Glowing effect */
     }
 
-    .main button::after {
-      content: '';
-      position: absolute;
-      top: -5px; left: -5px; right: -5px; bottom: -5px;
-      border-radius: 5px;
-      background-color: rgba(128, 0, 128, 0.5);
-      z-index: -1; /* Behind the button */
-      filter: blur(10px);
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 5px rgba(128, 0, 128, 0.7), 
+                    0 0 10px rgba(128, 0, 128, 0.5);
+        transform: scale(1);
+      }
+      to {
+        box-shadow: 0 0 20px rgba(128, 0, 128, 1), 
+                    0 0 30px rgba(128, 0, 128, 0.7);
+        transform: scale(1.05);
+      }
     }
 
     /* Animated Cubes */
     .cube {
       position: absolute;
-      width: 60px;
-      height: 60px;
-      background-color: #00bcd4; 
+      width: auto; /* Adjust width based on text length */
+      height: auto; 
+      padding: 10px; 
+      background-color: rgba(255, 255, 255, 0.1); /* Transparent white */
       border-radius: 15px; 
     }
 
@@ -86,11 +69,13 @@
       from {
         transform: translateX(100vw); /* Start offscreen to the right */
         opacity: 1; /* Visible at start */
+        filter: blur(0);
       }
       
       to {
         transform: translateX(-60px); /* Slide offscreen to the left */
         opacity: 0; /* Fade out at end */
+        filter: blur(10px);
       }
     }
     
@@ -98,46 +83,39 @@
 </head>
 <body>
 
-  <div class="header">
-    <a href="#">Home</a>
-    <a href="#">Features</a>
-    <a href="#">Download</a>
-    <a href="#">Support</a>
-  </div>
-
-  <div class="main">
+<div class="main">
     <h1>Welcome to Your Clean UI</h1>
     <p>Minimalist, Fast, and Secure</p>
     <button>Download Now</button>
-  </div>
+</div>
 
-  <script>
+<script>
     // Function to create cubes in the background
     function createCube() {
-      const cube = document.createElement('div');
-      cube.classList.add('cube');
-      
-      // Positioning the cube randomly along the vertical axis
-      cube.style.top = `${Math.random() * (window.innerHeight - 60)}px`;
-      
-      // Set animation duration and start animation
-      const duration = Math.random() * (5) + 5; // Duration between 5s and 10s
-      cube.style.animation = `slide ${duration}s linear infinite`;
-      
-      document.body.appendChild(cube);
+        const cube = document.createElement('div');
+        cube.classList.add('cube');
+        
+        // Positioning the cube randomly along the vertical axis
+        cube.style.top = `${Math.random() * (window.innerHeight - 60)}px`;
+        
+        // Set animation duration and start animation
+        const duration = Math.random() * (5) + 5; // Duration between 5s and 10s
+        cube.style.animation = `slide ${duration}s linear infinite`;
+        
+        document.body.appendChild(cube);
 
-       // Remove cube after animation ends
-       cube.addEventListener('animationiteration', () => {
-         cube.remove();
-         createCube(); // Create a new cube to maintain constant number
-       });
+         // Remove cube after animation ends
+         cube.addEventListener('animationiteration', () => {
+            cube.remove();
+            createCube(); // Create a new cube to maintain constant number
+         });
      }
      
      // Create initial cubes
      for (let i = 0; i < 4; i++) {
        createCube();
      }
-   </script>
+</script>
 
 </body>
 </html>
