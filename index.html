@@ -1,121 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTG - GAME ENHANCER</title>
-    <style>
-        body {
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clean UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            text-align: center;
-        }
-        
-        .title {
-            color: white;
-            font-size: 24px;
-            text-shadow: 0 0 10px white;
-            margin-bottom: 20px;
-        }
+    .header {
+      background-color: #282828;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .copy-button {
-            background-color: #000;
-            border: 2px solid red;
-            color: red;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: 0.2s;
-        }
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
 
-        .copy-button:hover {
-            box-shadow: 0 0 10px red;
-        }
+    .header a:hover {
+      color: #4CAF50;
+    }
 
-        .copy-button:active {
-            transform: scale(0.98);
-        }
+    .gradient-text {
+      background: linear-gradient(to right, #EAB8E4, white); /* Light purple to white */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-size: 36px; /* Adjust the size as needed */
+      padding: 20px 0; /* Add some padding */
+    }
 
-        /* Notification Styles */
-        .notify {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: rgb(240, 240, 240);
-            padding: 10px 20px;
-            border-radius: 20px;
-            box-shadow: 0 0 10px rgba(240, 240, 240, 0.5);
-            font-size: 16px;
-            transition: opacity 0.3s ease;
-        }
+    .main {
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-        .show {
-            display: block;
-            opacity: 1;
-        }
+    .main h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
 
-        /* Footer Styles */
-        .footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+    .main p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
 
-        /* Hide footer on PC */
-        @media screen and (min-width: 769px) {
-            .footer {
-                display: none;
-            }
-        }
-    </style>
+    .main button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .main button:hover {
+      background-color: #45a049;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      padding: 50px;
+      background-color: #2c2c2c;
+    }
+
+    .feature {
+      text-align: center;
+    }
+
+    .feature h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .feature p {
+      font-size: 16px;
+    }
+    
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">Glowing Copy Button</div>
-        <button class="copy-button" onclick="copyText()">Copy epic UTG script</button>
+
+  <div class="header">
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Download</a>
+    <a href="#">Support</a>
+  </div>
+
+  <!-- Placeholder for gradient text -->
+  <div id="gradientTextContainer"></div>
+
+  <div class="main">
+    <h1>Welcome to Your Clean UI</h1>
+    <p>Minimalist, Fast, and Secure</p>
+    <button>Download Now</button>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Performance</h3>
+      <p>Fast and optimized.</p>
     </div>
+    <div class="feature">
+      <h3>Security</h3>
+      <p>Top-level encryption.</p>
+    </div>
+    <div class="feature">
+      <h3>Support</h3>
+      <p>24/7 Help Center.</p>
+    </div>
+  </div>
 
-    <!-- Notification -->
-    <div id="notify" class="notify">Script copied! Now get tf out</div>
+  <script>
+    // JavaScript to create gradient text
+    const gradientTextContainer = document.getElementById('gradientTextContainer');
+    
+    // Create a new div for the gradient text
+    const gradientTextDiv = document.createElement('div');
+    
+    // Set the class for styling
+    gradientTextDiv.className = 'gradient-text';
+    
+    // Set the text content
+    gradientTextDiv.textContent = 'Welcome to Your Clean UI Experience';
+    
+    // Append the new div to the container
+    gradientTextContainer.appendChild(gradientTextDiv);
+  </script>
 
-    <!-- Footer (Visible on Mobile Only) -->
-    <div class="footer">© UTG Game Enhancer | All Rights Reserved</div>
-
-    <script>
-        function copyText() {
-            // Create a dummy input to copy the text from
-            const dummy = document.createElement("input");
-            document.body.appendChild(dummy);
-            dummy.setAttribute("value", 'loadstring(game:HttpGet("https://pastebin.com/raw/8Z1LC7sE"))()');
-            dummy.select();
-            document.execCommand("copy");
-            document.body.removeChild(dummy);
-
-            // Show custom notification
-            const notify = document.getElementById("notify");
-            notify.classList.add("show");
-            
-            // Hide notification after 2 seconds
-            setTimeout(() => {
-                notify.classList.remove("show");
-            }, 2000);
-        }
-    </script>
 </body>
 </html>
